@@ -1,0 +1,43 @@
+{
+  "id": 0,
+  "title": "Some.Other.Show.S01E01.720p",
+  "parsedEpisodeInfo": {
+    "releaseTitle": "Some.Other.Show.S01E01.720p",
+    "seriesTitle": "Some Other Show",
+    "quality": {
+      "quality": {
+        "id": 4,
+        "name": "HDTV-720p",
+        "source": "television",
+        "resolution": 720
+      },
+      "revision": {
+        "version": 1,
+        "real": 0,
+        "isRepack": false
+      }
+    },
+    "seasonNumber": 1,
+    "episodeNumbers": [
+      1
+    ],
+    "absoluteEpisodeNumbers": [],
+    "languages": [
+      {
+        "id": 1,
+        "name": "English"
+      }
+    ],
+    "fullSeason": false,
+    "releaseGroup": "GRP",
+    "releaseType": "singleEpisode"
+  },
+  "languages": [
+    {
+      "id": 1,
+      "name": "English"
+    }
+  ],
+  "customFormats": [],
+  "customFormatScore": 0
+}

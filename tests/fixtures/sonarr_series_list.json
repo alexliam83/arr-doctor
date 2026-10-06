@@ -1,0 +1,364 @@
+[
+  {
+    "id": 1,
+    "title": "The Capture",
+    "alternateTitles": [
+      {
+        "title": "Capture",
+        "seasonNumber": -1
+      }
+    ],
+    "sortTitle": "the capture",
+    "status": "continuing",
+    "ended": false,
+    "overview": "A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. ",
+    "network": "BBC One",
+    "airTime": "21:00",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    },
+    "seasons": [
+      {
+        "seasonNumber": 0,
+        "monitored": false,
+        "statistics": {
+          "episodeFileCount": 0,
+          "episodeCount": 0,
+          "totalEpisodeCount": 2,
+          "sizeOnDisk": 0,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 0
+        },
+        "images": []
+      },
+      {
+        "seasonNumber": 1,
+        "monitored": true,
+        "statistics": {
+          "episodeFileCount": 6,
+          "episodeCount": 6,
+          "totalEpisodeCount": 6,
+          "sizeOnDisk": 15000000000,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 100.0
+        },
+        "images": []
+      },
+      {
+        "seasonNumber": 2,
+        "monitored": true,
+        "statistics": {
+          "episodeFileCount": 6,
+          "episodeCount": 6,
+          "totalEpisodeCount": 6,
+          "sizeOnDisk": 15000000000,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 100.0
+        },
+        "images": []
+      },
+      {
+        "seasonNumber": 3,
+        "monitored": true,
+        "statistics": {
+          "episodeFileCount": 3,
+          "episodeCount": 4,
+          "totalEpisodeCount": 6,
+          "sizeOnDisk": 7500000000,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 75.0
+        },
+        "images": []
+      }
+    ],
+    "year": 2019,
+    "path": "/tv/The Capture",
+    "qualityProfileId": 4,
+    "seasonFolder": true,
+    "monitored": true,
+    "monitorNewItems": "all",
+    "useSceneNumbering": false,
+    "runtime": 60,
+    "tvdbId": 358000,
+    "tvRageId": 0,
+    "tvMazeId": 0,
+    "tmdbId": 0,
+    "firstAired": "2019-09-03T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "thecapture",
+    "imdbId": "tt0000001",
+    "titleSlug": "the-capture",
+    "rootFolderPath": "/tv/",
+    "certification": "TV-14",
+    "genres": [
+      "Drama"
+    ],
+    "tags": [],
+    "added": "2024-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 100,
+      "value": 7.5
+    },
+    "statistics": {
+      "seasonCount": 4,
+      "episodeFileCount": 15,
+      "episodeCount": 16,
+      "totalEpisodeCount": 16,
+      "sizeOnDisk": 37500000000,
+      "releaseGroups": [
+        "NTb"
+      ],
+      "percentOfEpisodes": 93.75
+    }
+  },
+  {
+    "id": 2,
+    "title": "The Office",
+    "alternateTitles": [],
+    "sortTitle": "the office",
+    "status": "continuing",
+    "ended": false,
+    "overview": "A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. ",
+    "network": "NBC",
+    "airTime": "21:00",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    },
+    "seasons": [
+      {
+        "seasonNumber": 1,
+        "monitored": true,
+        "statistics": {
+          "episodeFileCount": 6,
+          "episodeCount": 6,
+          "totalEpisodeCount": 6,
+          "sizeOnDisk": 15000000000,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 100.0
+        },
+        "images": []
+      }
+    ],
+    "year": 2005,
+    "path": "/tv/The Office",
+    "qualityProfileId": 4,
+    "seasonFolder": true,
+    "monitored": true,
+    "monitorNewItems": "all",
+    "useSceneNumbering": false,
+    "runtime": 60,
+    "tvdbId": 73244,
+    "tvRageId": 0,
+    "tvMazeId": 0,
+    "tmdbId": 0,
+    "firstAired": "2005-09-03T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "theoffice",
+    "imdbId": "tt0000001",
+    "titleSlug": "the-office",
+    "rootFolderPath": "/tv/",
+    "certification": "TV-14",
+    "genres": [
+      "Drama"
+    ],
+    "tags": [],
+    "added": "2024-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 100,
+      "value": 7.5
+    },
+    "statistics": {
+      "seasonCount": 1,
+      "episodeFileCount": 6,
+      "episodeCount": 6,
+      "totalEpisodeCount": 6,
+      "sizeOnDisk": 15000000000,
+      "releaseGroups": [
+        "NTb"
+      ],
+      "percentOfEpisodes": 100.0
+    }
+  },
+  {
+    "id": 3,
+    "title": "The Office",
+    "alternateTitles": [],
+    "sortTitle": "the office",
+    "status": "continuing",
+    "ended": false,
+    "overview": "A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. ",
+    "network": "BBC Two",
+    "airTime": "21:00",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    },
+    "seasons": [
+      {
+        "seasonNumber": 1,
+        "monitored": true,
+        "statistics": {
+          "episodeFileCount": 6,
+          "episodeCount": 6,
+          "totalEpisodeCount": 6,
+          "sizeOnDisk": 15000000000,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 100.0
+        },
+        "images": []
+      }
+    ],
+    "year": 2001,
+    "path": "/tv/The Office",
+    "qualityProfileId": 4,
+    "seasonFolder": true,
+    "monitored": true,
+    "monitorNewItems": "all",
+    "useSceneNumbering": false,
+    "runtime": 60,
+    "tvdbId": 78107,
+    "tvRageId": 0,
+    "tvMazeId": 0,
+    "tmdbId": 0,
+    "firstAired": "2001-09-03T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "theoffice",
+    "imdbId": "tt0000001",
+    "titleSlug": "the-office",
+    "rootFolderPath": "/tv/",
+    "certification": "TV-14",
+    "genres": [
+      "Drama"
+    ],
+    "tags": [],
+    "added": "2024-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 100,
+      "value": 7.5
+    },
+    "statistics": {
+      "seasonCount": 1,
+      "episodeFileCount": 6,
+      "episodeCount": 6,
+      "totalEpisodeCount": 6,
+      "sizeOnDisk": 15000000000,
+      "releaseGroups": [
+        "NTb"
+      ],
+      "percentOfEpisodes": 100.0
+    }
+  },
+  {
+    "id": 4,
+    "title": "24",
+    "alternateTitles": [],
+    "sortTitle": "24",
+    "status": "continuing",
+    "ended": false,
+    "overview": "A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. ",
+    "network": "FOX",
+    "airTime": "21:00",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    },
+    "seasons": [
+      {
+        "seasonNumber": 1,
+        "monitored": true,
+        "statistics": {
+          "episodeFileCount": 24,
+          "episodeCount": 24,
+          "totalEpisodeCount": 24,
+          "sizeOnDisk": 60000000000,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 100.0
+        },
+        "images": []
+      }
+    ],
+    "year": 2001,
+    "path": "/tv/24",
+    "qualityProfileId": 4,
+    "seasonFolder": true,
+    "monitored": true,
+    "monitorNewItems": "all",
+    "useSceneNumbering": false,
+    "runtime": 60,
+    "tvdbId": 76290,
+    "tvRageId": 0,
+    "tvMazeId": 0,
+    "tmdbId": 0,
+    "firstAired": "2001-09-03T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "24",
+    "imdbId": "tt0000001",
+    "titleSlug": "24",
+    "rootFolderPath": "/tv/",
+    "certification": "TV-14",
+    "genres": [
+      "Drama"
+    ],
+    "tags": [],
+    "added": "2024-01-01T00:00:00Z",
+    "ratings": {
+      "votes": 100,
+      "value": 7.5
+    },
+    "statistics": {
+      "seasonCount": 1,
+      "episodeFileCount": 24,
+      "episodeCount": 24,
+      "totalEpisodeCount": 24,
+      "sizeOnDisk": 60000000000,
+      "releaseGroups": [
+        "NTb"
+      ],
+      "percentOfEpisodes": 100.0
+    }
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "id": 4,
+    "name": "HD-1080p",
+    "upgradeAllowed": true,
+    "cutoff": 7,
+    "minFormatScore": 0,
+    "cutoffFormatScore": 0,
+    "minUpgradeFormatScore": 1,
+    "items": [
+      {
+        "quality": {
+          "id": 7,
+          "name": "Bluray-1080p",
+          "source": "bluray",
+          "resolution": 1080
+        },
+        "items": [],
+        "allowed": true
+      },
+      {
+        "quality": {
+          "id": 19,
+          "name": "Bluray-2160p",
+          "source": "bluray",
+          "resolution": 2160
+        },
+        "items": [],
+        "allowed": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="arr-doctor">
+  <title>arr-doctor</title>
+  <rect width="128" height="128" rx="30" fill="#12161F"/>
+  <path d="M16 66 H36 L44 46 L54 86 L62 58 L68 66 H80" fill="none" stroke="#4AA3DF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M84 46 L110 66 L84 86 Z" fill="#F0A23B" stroke="#F0A23B" stroke-width="6" stroke-linejoin="round"/>
+</svg>

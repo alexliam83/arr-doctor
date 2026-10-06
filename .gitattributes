@@ -1,0 +1,5 @@
+# Same line endings on every OS (the docs test compares generated files byte for byte).
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf

@@ -1,0 +1,119 @@
+{
+  "page": 1,
+  "pageSize": 50,
+  "sortKey": "movieMetadata.sortTitle",
+  "sortDirection": "ascending",
+  "totalRecords": 2,
+  "records": [
+    {
+      "id": 2,
+      "title": "Dune",
+      "originalTitle": "Dune",
+      "originalLanguage": {
+        "id": 1,
+        "name": "English"
+      },
+      "alternateTitles": [],
+      "sortTitle": "dune",
+      "sizeOnDisk": 0,
+      "status": "released",
+      "overview": "Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. ",
+      "inCinemas": "1984-03-01T00:00:00Z",
+      "digitalRelease": "1984-05-01T00:00:00Z",
+      "physicalRelease": "1984-06-01T00:00:00Z",
+      "images": [
+        {
+          "coverType": "poster",
+          "url": "/MediaCover/1/poster.jpg",
+          "remoteUrl": "https://artworks.example/poster.jpg"
+        }
+      ],
+      "website": "",
+      "year": 1984,
+      "youTubeTrailerId": "",
+      "studio": "Studio",
+      "path": "/movies/Dune (1984)",
+      "qualityProfileId": 4,
+      "hasFile": false,
+      "movieFileId": 0,
+      "monitored": true,
+      "minimumAvailability": "released",
+      "isAvailable": true,
+      "folderName": "/movies/Dune (1984)",
+      "runtime": 120,
+      "cleanTitle": "dune",
+      "imdbId": "tt0000002",
+      "tmdbId": 841,
+      "titleSlug": "841",
+      "rootFolderPath": "/movies/",
+      "certification": "PG-13",
+      "genres": [
+        "Drama"
+      ],
+      "tags": [],
+      "added": "2024-01-01T00:00:00Z",
+      "ratings": {},
+      "popularity": 10.0,
+      "statistics": {
+        "movieFileCount": 0,
+        "sizeOnDisk": 0,
+        "releaseGroups": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Past Lives",
+      "originalTitle": "Past Lives",
+      "originalLanguage": {
+        "id": 1,
+        "name": "English"
+      },
+      "alternateTitles": [],
+      "sortTitle": "past lives",
+      "sizeOnDisk": 0,
+      "status": "released",
+      "overview": "Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. ",
+      "inCinemas": "2023-03-01T00:00:00Z",
+      "digitalRelease": "2023-05-01T00:00:00Z",
+      "physicalRelease": "2023-06-01T00:00:00Z",
+      "images": [
+        {
+          "coverType": "poster",
+          "url": "/MediaCover/1/poster.jpg",
+          "remoteUrl": "https://artworks.example/poster.jpg"
+        }
+      ],
+      "website": "",
+      "year": 2023,
+      "youTubeTrailerId": "",
+      "studio": "Studio",
+      "path": "/movies/Past Lives (2023)",
+      "qualityProfileId": 4,
+      "hasFile": false,
+      "movieFileId": 0,
+      "monitored": true,
+      "minimumAvailability": "released",
+      "isAvailable": true,
+      "folderName": "/movies/Past Lives (2023)",
+      "runtime": 120,
+      "cleanTitle": "past lives",
+      "imdbId": "tt0000002",
+      "tmdbId": 666277,
+      "titleSlug": "666277",
+      "rootFolderPath": "/movies/",
+      "certification": "PG-13",
+      "genres": [
+        "Drama"
+      ],
+      "tags": [],
+      "added": "2024-01-01T00:00:00Z",
+      "ratings": {},
+      "popularity": 10.0,
+      "statistics": {
+        "movieFileCount": 0,
+        "sizeOnDisk": 0,
+        "releaseGroups": []
+      }
+    }
+  ]
+}

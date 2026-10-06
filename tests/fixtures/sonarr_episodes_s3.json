@@ -1,0 +1,227 @@
+[
+  {
+    "id": 301,
+    "seriesId": 1,
+    "tvdbId": 9301,
+    "episodeFileId": 101,
+    "seasonNumber": 3,
+    "episodeNumber": 1,
+    "title": "Part One",
+    "airDate": "2026-09-07",
+    "airDateUtc": "2026-09-07T20:00:00Z",
+    "runtime": 60,
+    "overview": "Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview ",
+    "hasFile": true,
+    "monitored": true,
+    "unverifiedSceneNumbering": false,
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "episodeFile": {
+      "id": 101,
+      "seriesId": 1,
+      "seasonNumber": 3,
+      "relativePath": "Season 03/The Capture - S03E01.mkv",
+      "path": "/tv/The Capture/Season 03/The Capture - S03E01.mkv",
+      "size": 2600000000,
+      "dateAdded": "2026-09-10T00:00:00Z",
+      "releaseGroup": "NTb",
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "quality": {
+        "quality": {
+          "id": 3,
+          "name": "WEBDL-1080p",
+          "source": "web",
+          "resolution": 1080
+        },
+        "revision": {
+          "version": 1,
+          "real": 0,
+          "isRepack": false
+        }
+      }
+    }
+  },
+  {
+    "id": 302,
+    "seriesId": 1,
+    "tvdbId": 9302,
+    "episodeFileId": 102,
+    "seasonNumber": 3,
+    "episodeNumber": 2,
+    "title": "Part Two",
+    "airDate": "2026-09-07",
+    "airDateUtc": "2026-09-07T21:00:00Z",
+    "runtime": 60,
+    "overview": "Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview ",
+    "hasFile": true,
+    "monitored": true,
+    "unverifiedSceneNumbering": false,
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "episodeFile": {
+      "id": 102,
+      "seriesId": 1,
+      "seasonNumber": 3,
+      "relativePath": "Season 03/The Capture - S03E02.mkv",
+      "path": "/tv/The Capture/Season 03/The Capture - S03E02.mkv",
+      "size": 2600000000,
+      "dateAdded": "2026-09-10T00:00:00Z",
+      "releaseGroup": "NTb",
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "quality": {
+        "quality": {
+          "id": 3,
+          "name": "WEBDL-1080p",
+          "source": "web",
+          "resolution": 1080
+        },
+        "revision": {
+          "version": 1,
+          "real": 0,
+          "isRepack": false
+        }
+      }
+    }
+  },
+  {
+    "id": 303,
+    "seriesId": 1,
+    "tvdbId": 9303,
+    "episodeFileId": 103,
+    "seasonNumber": 3,
+    "episodeNumber": 3,
+    "title": "Part Three",
+    "airDate": "2026-09-14",
+    "airDateUtc": "2026-09-14T20:00:00Z",
+    "runtime": 60,
+    "overview": "Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview ",
+    "hasFile": true,
+    "monitored": true,
+    "unverifiedSceneNumbering": false,
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "episodeFile": {
+      "id": 103,
+      "seriesId": 1,
+      "seasonNumber": 3,
+      "relativePath": "Season 03/The Capture - S03E03.mkv",
+      "path": "/tv/The Capture/Season 03/The Capture - S03E03.mkv",
+      "size": 2600000000,
+      "dateAdded": "2026-09-10T00:00:00Z",
+      "releaseGroup": "NTb",
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "quality": {
+        "quality": {
+          "id": 3,
+          "name": "WEBDL-1080p",
+          "source": "web",
+          "resolution": 1080
+        },
+        "revision": {
+          "version": 1,
+          "real": 0,
+          "isRepack": false
+        }
+      }
+    }
+  },
+  {
+    "id": 304,
+    "seriesId": 1,
+    "tvdbId": 9304,
+    "episodeFileId": 0,
+    "seasonNumber": 3,
+    "episodeNumber": 4,
+    "title": "Part Four",
+    "airDate": "2026-09-21",
+    "airDateUtc": "2026-09-21T20:00:00Z",
+    "runtime": 60,
+    "overview": "Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview ",
+    "hasFile": false,
+    "monitored": true,
+    "unverifiedSceneNumbering": false,
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": 305,
+    "seriesId": 1,
+    "tvdbId": 9305,
+    "episodeFileId": 0,
+    "seasonNumber": 3,
+    "episodeNumber": 5,
+    "title": "Part Five",
+    "airDate": "2099-01-01",
+    "airDateUtc": "2099-01-01T20:00:00Z",
+    "runtime": 60,
+    "overview": "Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview ",
+    "hasFile": false,
+    "monitored": true,
+    "unverifiedSceneNumbering": false,
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": 306,
+    "seriesId": 1,
+    "tvdbId": 9306,
+    "episodeFileId": 0,
+    "seasonNumber": 3,
+    "episodeNumber": 6,
+    "title": "Part Six",
+    "airDate": "2099-01-08",
+    "airDateUtc": "2099-01-08T20:00:00Z",
+    "runtime": 60,
+    "overview": "Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview ",
+    "hasFile": false,
+    "monitored": true,
+    "unverifiedSceneNumbering": false,
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ]
+  }
+]

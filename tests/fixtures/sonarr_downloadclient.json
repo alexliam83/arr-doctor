@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Download Station",
+    "fields": [
+      {
+        "order": 0,
+        "name": "host",
+        "value": "192.0.2.10"
+      },
+      {
+        "order": 1,
+        "name": "port",
+        "value": 5000
+      },
+      {
+        "order": 2,
+        "name": "username",
+        "value": "user"
+      },
+      {
+        "order": 3,
+        "name": "password",
+        "value": "********"
+      },
+      {
+        "order": 4,
+        "name": "tvCategory",
+        "value": "tv"
+      },
+      {
+        "order": 5,
+        "name": "tvDirectory",
+        "value": "downloads/tv"
+      }
+    ],
+    "implementationName": "Download Station",
+    "implementation": "DownloadStation",
+    "configContract": "DownloadStationSettings",
+    "tags": [],
+    "enable": true,
+    "protocol": "torrent",
+    "priority": 1,
+    "removeCompletedDownloads": true,
+    "removeFailedDownloads": true
+  }
+]

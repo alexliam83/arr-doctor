@@ -1,0 +1,42 @@
+[
+  {
+    "id": 9,
+    "path": "/downloads/Capture.2019.3x04.mkv",
+    "relativePath": "Capture.2019.3x04.mkv",
+    "folderName": "downloads",
+    "name": "Capture.2019.3x04.mkv",
+    "size": 2500000000,
+    "episodes": [],
+    "releaseGroup": "NTb",
+    "quality": {
+      "quality": {
+        "id": 3,
+        "name": "WEBDL-1080p",
+        "source": "web",
+        "resolution": 1080
+      },
+      "revision": {
+        "version": 1,
+        "real": 0,
+        "isRepack": false
+      }
+    },
+    "languages": [
+      {
+        "id": 1,
+        "name": "English"
+      }
+    ],
+    "qualityWeight": 100,
+    "customFormats": [],
+    "customFormatScore": 0,
+    "indexerFlags": 0,
+    "releaseType": "singleEpisode",
+    "rejections": [
+      {
+        "reason": "Unknown Series",
+        "type": "permanent"
+      }
+    ]
+  }
+]

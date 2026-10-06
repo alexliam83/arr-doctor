@@ -1,0 +1,61 @@
+[
+  {
+    "id": 301,
+    "seriesId": 1,
+    "tvdbId": 9301,
+    "episodeFileId": 101,
+    "seasonNumber": 3,
+    "episodeNumber": 1,
+    "title": "Part One",
+    "airDate": "2026-09-07",
+    "airDateUtc": "2026-09-07T20:00:00Z",
+    "runtime": 60,
+    "overview": "Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview ",
+    "hasFile": true,
+    "monitored": true,
+    "unverifiedSceneNumbering": false,
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "episodeFile": {
+      "id": 101,
+      "seriesId": 1,
+      "seasonNumber": 3,
+      "relativePath": "Season 03/The Capture - S03E01.mkv",
+      "path": "/tv/The Capture/Season 03/The Capture - S03E01.mkv",
+      "size": 2600000000,
+      "dateAdded": "2026-09-10T00:00:00Z",
+      "releaseGroup": "NTb",
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "quality": {
+        "quality": {
+          "id": 3,
+          "name": "WEBDL-1080p",
+          "source": "web",
+          "resolution": 1080
+        },
+        "revision": {
+          "version": 1,
+          "real": 0,
+          "isRepack": false
+        }
+      },
+      "customFormatScore": 10,
+      "customFormats": [
+        {
+          "id": 1,
+          "name": "WEB Tier 01"
+        }
+      ]
+    }
+  }
+]

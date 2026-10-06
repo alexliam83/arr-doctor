@@ -1,0 +1,19 @@
+{
+  "page": 1,
+  "pageSize": 20,
+  "sortKey": "time",
+  "sortDirection": "descending",
+  "totalRecords": 1,
+  "records": [
+    {
+      "id": 9,
+      "time": "2026-10-04T09:00:00Z",
+      "exception": "System.Net.WebException: Connection refused",
+      "exceptionType": "System.Net.WebException",
+      "level": "error",
+      "logger": "DownloadStation",
+      "message": "Failed to get torrents",
+      "method": "GetItems"
+    }
+  ]
+}

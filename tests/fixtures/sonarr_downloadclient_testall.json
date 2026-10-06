@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "isValid": false,
+    "validationFailures": [
+      {
+        "propertyName": "Host",
+        "errorMessage": "Unable to connect to Download Station",
+        "severity": "error",
+        "isWarning": false
+      }
+    ]
+  }
+]

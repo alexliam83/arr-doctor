@@ -1,0 +1,15 @@
+{
+  "id": 555,
+  "name": "MoviesSearch",
+  "commandName": "MoviesSearch",
+  "body": {
+    "sendUpdatesToClient": true
+  },
+  "priority": "normal",
+  "status": "queued",
+  "result": "unknown",
+  "queued": "2026-10-04T12:00:00Z",
+  "trigger": "manual",
+  "sendUpdatesToClient": true,
+  "updateScheduledTask": true
+}

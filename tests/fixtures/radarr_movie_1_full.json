@@ -1,0 +1,84 @@
+{
+  "id": 1,
+  "title": "Dune",
+  "originalTitle": "Dune",
+  "originalLanguage": {
+    "id": 1,
+    "name": "English"
+  },
+  "alternateTitles": [],
+  "sortTitle": "dune",
+  "sizeOnDisk": 8000000000,
+  "status": "released",
+  "overview": "Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. Movie overview. ",
+  "inCinemas": "2021-03-01T00:00:00Z",
+  "digitalRelease": "2021-05-01T00:00:00Z",
+  "physicalRelease": "2021-06-01T00:00:00Z",
+  "images": [
+    {
+      "coverType": "poster",
+      "url": "/MediaCover/1/poster.jpg",
+      "remoteUrl": "https://artworks.example/poster.jpg"
+    }
+  ],
+  "website": "",
+  "year": 2021,
+  "youTubeTrailerId": "",
+  "studio": "Studio",
+  "path": "/movies/Dune (2021)",
+  "qualityProfileId": 4,
+  "hasFile": true,
+  "movieFileId": 10,
+  "monitored": true,
+  "minimumAvailability": "released",
+  "isAvailable": true,
+  "folderName": "/movies/Dune (2021)",
+  "runtime": 120,
+  "cleanTitle": "dune",
+  "imdbId": "tt0000002",
+  "tmdbId": 438631,
+  "titleSlug": "438631",
+  "rootFolderPath": "/movies/",
+  "certification": "PG-13",
+  "genres": [
+    "Drama"
+  ],
+  "tags": [],
+  "added": "2024-01-01T00:00:00Z",
+  "ratings": {},
+  "popularity": 10.0,
+  "statistics": {
+    "movieFileCount": 1,
+    "sizeOnDisk": 8000000000,
+    "releaseGroups": []
+  },
+  "movieFile": {
+    "id": 10,
+    "movieId": 1,
+    "relativePath": "Dune (2021).mkv",
+    "path": "/movies/Dune (2021)/Dune (2021).mkv",
+    "size": 8000000000,
+    "dateAdded": "2024-01-02T00:00:00Z",
+    "releaseGroup": "FLUX",
+    "quality": {
+      "quality": {
+        "id": 7,
+        "name": "Bluray-1080p",
+        "source": "bluray",
+        "resolution": 1080
+      },
+      "revision": {
+        "version": 1,
+        "real": 0,
+        "isRepack": false
+      }
+    },
+    "languages": [
+      {
+        "id": 1,
+        "name": "English"
+      }
+    ],
+    "customFormatScore": 0
+  }
+}

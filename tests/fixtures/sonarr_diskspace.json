@@ -1,0 +1,16 @@
+[
+  {
+    "id": 0,
+    "path": "/tv",
+    "label": "",
+    "freeSpace": 1200000000000,
+    "totalSpace": 4000000000000
+  },
+  {
+    "id": 0,
+    "path": "/downloads",
+    "label": "",
+    "freeSpace": 1200000000000,
+    "totalSpace": 4000000000000
+  }
+]

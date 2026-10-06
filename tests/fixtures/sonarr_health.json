@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "source": "DownloadClientCheck",
+    "type": "warning",
+    "message": "Unable to communicate with Download Station. Connection refused",
+    "wikiUrl": "https://wiki.servarr.com/sonarr/system#download-clients-are-unavailable"
+  }
+]

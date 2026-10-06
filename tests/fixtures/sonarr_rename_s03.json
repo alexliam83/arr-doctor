@@ -1,0 +1,24 @@
+[
+  {
+    "id": 0,
+    "seriesId": 1,
+    "seasonNumber": 3,
+    "episodeNumbers": [
+      1
+    ],
+    "episodeFileId": 101,
+    "existingPath": "Season 03/the.capture.s03e01.1080p.mkv",
+    "newPath": "Season 03/The Capture - S03E01 - Part One [WEBDL-1080p].mkv"
+  },
+  {
+    "id": 0,
+    "seriesId": 1,
+    "seasonNumber": 3,
+    "episodeNumbers": [
+      2
+    ],
+    "episodeFileId": 102,
+    "existingPath": "Season 03/the.capture.s03e02.mkv",
+    "newPath": "Season 03/The Capture - S03E02 - Part Two [WEBDL-1080p].mkv"
+  }
+]

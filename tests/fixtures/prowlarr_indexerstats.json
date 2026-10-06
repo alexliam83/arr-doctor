@@ -1,0 +1,49 @@
+{
+  "id": 0,
+  "indexers": [
+    {
+      "indexerId": 1,
+      "indexerName": "1337x",
+      "averageResponseTime": 800,
+      "averageGrabResponseTime": 300,
+      "numberOfQueries": 500,
+      "numberOfGrabs": 40,
+      "numberOfRssQueries": 100,
+      "numberOfAuthQueries": 0,
+      "numberOfFailedQueries": 5,
+      "numberOfFailedGrabs": 0,
+      "numberOfFailedRssQueries": 3,
+      "numberOfFailedAuthQueries": 0
+    },
+    {
+      "indexerId": 2,
+      "indexerName": "LimeTorrents",
+      "averageResponseTime": 800,
+      "averageGrabResponseTime": 300,
+      "numberOfQueries": 400,
+      "numberOfGrabs": 10,
+      "numberOfRssQueries": 100,
+      "numberOfAuthQueries": 0,
+      "numberOfFailedQueries": 120,
+      "numberOfFailedGrabs": 2,
+      "numberOfFailedRssQueries": 3,
+      "numberOfFailedAuthQueries": 0
+    },
+    {
+      "indexerId": 3,
+      "indexerName": "TheRARBG",
+      "averageResponseTime": 800,
+      "averageGrabResponseTime": 300,
+      "numberOfQueries": 300,
+      "numberOfGrabs": 5,
+      "numberOfRssQueries": 100,
+      "numberOfAuthQueries": 0,
+      "numberOfFailedQueries": 60,
+      "numberOfFailedGrabs": 1,
+      "numberOfFailedRssQueries": 3,
+      "numberOfFailedAuthQueries": 0
+    }
+  ],
+  "userAgents": [],
+  "hosts": []
+}

@@ -1,0 +1,64 @@
+[
+  {
+    "title": "Slow Horses",
+    "alternateTitles": [],
+    "sortTitle": "slow horses",
+    "status": "continuing",
+    "ended": false,
+    "overview": "A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. ",
+    "network": "BBC One",
+    "airTime": "21:00",
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/1/poster.jpg",
+        "remoteUrl": "https://artworks.example/poster.jpg"
+      }
+    ],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    },
+    "seasons": [
+      {
+        "seasonNumber": 1,
+        "monitored": true,
+        "statistics": {
+          "episodeFileCount": 0,
+          "episodeCount": 8,
+          "totalEpisodeCount": 8,
+          "sizeOnDisk": 0,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 0.0
+        },
+        "images": []
+      }
+    ],
+    "year": 2022,
+    "seasonFolder": true,
+    "monitored": true,
+    "monitorNewItems": "all",
+    "useSceneNumbering": false,
+    "runtime": 60,
+    "tvdbId": 400000,
+    "tvRageId": 0,
+    "tvMazeId": 0,
+    "tmdbId": 0,
+    "firstAired": "2022-09-03T00:00:00Z",
+    "seriesType": "standard",
+    "cleanTitle": "slowhorses",
+    "imdbId": "tt0000001",
+    "titleSlug": "slow-horses",
+    "certification": "TV-14",
+    "genres": [
+      "Drama"
+    ],
+    "tags": [],
+    "ratings": {
+      "votes": 100,
+      "value": 7.5
+    }
+  }
+]

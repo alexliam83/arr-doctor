@@ -1,0 +1,189 @@
+{
+  "page": 1,
+  "pageSize": 50,
+  "sortKey": "episodes.airDateUtc",
+  "sortDirection": "descending",
+  "totalRecords": 1,
+  "records": [
+    {
+      "id": 301,
+      "seriesId": 1,
+      "tvdbId": 9301,
+      "episodeFileId": 101,
+      "seasonNumber": 3,
+      "episodeNumber": 1,
+      "title": "Part One",
+      "airDate": "2026-09-21",
+      "airDateUtc": "2026-09-21T20:00:00Z",
+      "runtime": 60,
+      "overview": "Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview Episode overview ",
+      "hasFile": true,
+      "monitored": true,
+      "unverifiedSceneNumbering": false,
+      "images": [
+        {
+          "coverType": "poster",
+          "url": "/MediaCover/1/poster.jpg",
+          "remoteUrl": "https://artworks.example/poster.jpg"
+        }
+      ],
+      "episodeFile": {
+        "id": 101,
+        "seriesId": 1,
+        "seasonNumber": 3,
+        "relativePath": "Season 03/The Capture - S03E01.mkv",
+        "path": "/tv/The Capture/Season 03/The Capture - S03E01.mkv",
+        "size": 2600000000,
+        "dateAdded": "2026-09-10T00:00:00Z",
+        "releaseGroup": "NTb",
+        "languages": [
+          {
+            "id": 1,
+            "name": "English"
+          }
+        ],
+        "quality": {
+          "quality": {
+            "id": 3,
+            "name": "WEBDL-1080p",
+            "source": "web",
+            "resolution": 1080
+          },
+          "revision": {
+            "version": 1,
+            "real": 0,
+            "isRepack": false
+          }
+        }
+      },
+      "series": {
+        "id": 1,
+        "title": "The Capture",
+        "alternateTitles": [
+          {
+            "title": "Capture",
+            "seasonNumber": -1
+          }
+        ],
+        "sortTitle": "the capture",
+        "status": "continuing",
+        "ended": false,
+        "overview": "A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. A long overview text. ",
+        "network": "BBC One",
+        "airTime": "21:00",
+        "images": [
+          {
+            "coverType": "poster",
+            "url": "/MediaCover/1/poster.jpg",
+            "remoteUrl": "https://artworks.example/poster.jpg"
+          }
+        ],
+        "originalLanguage": {
+          "id": 1,
+          "name": "English"
+        },
+        "seasons": [
+          {
+            "seasonNumber": 0,
+            "monitored": false,
+            "statistics": {
+              "episodeFileCount": 0,
+              "episodeCount": 0,
+              "totalEpisodeCount": 2,
+              "sizeOnDisk": 0,
+              "releaseGroups": [
+                "NTb"
+              ],
+              "percentOfEpisodes": 0
+            },
+            "images": []
+          },
+          {
+            "seasonNumber": 1,
+            "monitored": true,
+            "statistics": {
+              "episodeFileCount": 6,
+              "episodeCount": 6,
+              "totalEpisodeCount": 6,
+              "sizeOnDisk": 15000000000,
+              "releaseGroups": [
+                "NTb"
+              ],
+              "percentOfEpisodes": 100.0
+            },
+            "images": []
+          },
+          {
+            "seasonNumber": 2,
+            "monitored": true,
+            "statistics": {
+              "episodeFileCount": 6,
+              "episodeCount": 6,
+              "totalEpisodeCount": 6,
+              "sizeOnDisk": 15000000000,
+              "releaseGroups": [
+                "NTb"
+              ],
+              "percentOfEpisodes": 100.0
+            },
+            "images": []
+          },
+          {
+            "seasonNumber": 3,
+            "monitored": true,
+            "statistics": {
+              "episodeFileCount": 3,
+              "episodeCount": 4,
+              "totalEpisodeCount": 6,
+              "sizeOnDisk": 7500000000,
+              "releaseGroups": [
+                "NTb"
+              ],
+              "percentOfEpisodes": 75.0
+            },
+            "images": []
+          }
+        ],
+        "year": 2019,
+        "path": "/tv/The Capture",
+        "qualityProfileId": 4,
+        "seasonFolder": true,
+        "monitored": true,
+        "monitorNewItems": "all",
+        "useSceneNumbering": false,
+        "runtime": 60,
+        "tvdbId": 358000,
+        "tvRageId": 0,
+        "tvMazeId": 0,
+        "tmdbId": 0,
+        "firstAired": "2019-09-03T00:00:00Z",
+        "seriesType": "standard",
+        "cleanTitle": "thecapture",
+        "imdbId": "tt0000001",
+        "titleSlug": "the-capture",
+        "rootFolderPath": "/tv/",
+        "certification": "TV-14",
+        "genres": [
+          "Drama"
+        ],
+        "tags": [],
+        "added": "2024-01-01T00:00:00Z",
+        "ratings": {
+          "votes": 100,
+          "value": 7.5
+        },
+        "statistics": {
+          "seasonCount": 4,
+          "episodeFileCount": 15,
+          "episodeCount": 16,
+          "totalEpisodeCount": 16,
+          "sizeOnDisk": 37500000000,
+          "releaseGroups": [
+            "NTb"
+          ],
+          "percentOfEpisodes": 93.75
+        }
+      }
+    }
+  ]
+}

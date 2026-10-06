@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "name": "1337x",
+    "fields": [
+      {
+        "order": 0,
+        "name": "baseUrl",
+        "value": "https://indexer.example/",
+        "type": "select"
+      }
+    ],
+    "implementationName": "Cardigann",
+    "implementation": "Cardigann",
+    "configContract": "CardigannSettings",
+    "infoLink": "https://wiki.servarr.com/prowlarr/supported-indexers",
+    "tags": [],
+    "presets": [],
+    "indexerUrls": [
+      "https://indexer.example/"
+    ],
+    "legacyUrls": [],
+    "definitionName": "1337x",
+    "description": "Public torrent site",
+    "language": "en-US",
+    "enable": true,
+    "redirect": false,
+    "supportsRss": true,
+    "supportsSearch": true,
+    "supportsRedirect": false,
+    "supportsPagination": false,
+    "appProfileId": 1,
+    "protocol": "torrent",
+    "privacy": "public",
+    "capabilities": {
+      "id": 0,
+      "limitsMax": 100,
+      "limitsDefault": 100,
+      "categories": []
+    },
+    "priority": 25,
+    "added": "2025-01-01T00:00:00Z",
+    "sortName": "1337x"
+  },
+  {
+    "id": 2,
+    "name": "LimeTorrents",
+    "fields": [
+      {
+        "order": 0,
+        "name": "baseUrl",
+        "value": "https://indexer.example/",
+        "type": "select"
+      }
+    ],
+    "implementationName": "Cardigann",
+    "implementation": "Cardigann",
+    "configContract": "CardigannSettings",
+    "infoLink": "https://wiki.servarr.com/prowlarr/supported-indexers",
+    "tags": [],
+    "presets": [],
+    "indexerUrls": [
+      "https://indexer.example/"
+    ],
+    "legacyUrls": [],
+    "definitionName": "limetorrents",
+    "description": "Public torrent site",
+    "language": "en-US",
+    "enable": true,
+    "redirect": false,
+    "supportsRss": true,
+    "supportsSearch": true,
+    "supportsRedirect": false,
+    "supportsPagination": false,
+    "appProfileId": 1,
+    "protocol": "torrent",
+    "privacy": "public",
+    "capabilities": {
+      "id": 0,
+      "limitsMax": 100,
+      "limitsDefault": 100,
+      "categories": []
+    },
+    "priority": 30,
+    "added": "2025-01-01T00:00:00Z",
+    "sortName": "limetorrents"
+  },
+  {
+    "id": 3,
+    "name": "TheRARBG",
+    "fields": [
+      {
+        "order": 0,
+        "name": "baseUrl",
+        "value": "https://indexer.example/",
+        "type": "select"
+      }
+    ],
+    "implementationName": "Cardigann",
+    "implementation": "Cardigann",
+    "configContract": "CardigannSettings",
+    "infoLink": "https://wiki.servarr.com/prowlarr/supported-indexers",
+    "tags": [],
+    "presets": [],
+    "indexerUrls": [
+      "https://indexer.example/"
+    ],
+    "legacyUrls": [],
+    "definitionName": "therarbg",
+    "description": "Public torrent site",
+    "language": "en-US",
+    "enable": false,
+    "redirect": false,
+    "supportsRss": true,
+    "supportsSearch": true,
+    "supportsRedirect": false,
+    "supportsPagination": false,
+    "appProfileId": 1,
+    "protocol": "torrent",
+    "privacy": "public",
+    "capabilities": {
+      "id": 0,
+      "limitsMax": 100,
+      "limitsDefault": 100,
+      "categories": []
+    },
+    "priority": 25,
+    "added": "2025-01-01T00:00:00Z",
+    "sortName": "therarbg"
+  }
+]

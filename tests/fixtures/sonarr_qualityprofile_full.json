@@ -1,0 +1,51 @@
+[
+  {
+    "id": 4,
+    "name": "HD-1080p",
+    "upgradeAllowed": true,
+    "cutoff": 1003,
+    "minFormatScore": 0,
+    "cutoffFormatScore": 100,
+    "minUpgradeFormatScore": 1,
+    "formatItems": [],
+    "items": [
+      {
+        "quality": {
+          "id": 4,
+          "name": "HDTV-720p",
+          "source": "television",
+          "resolution": 720
+        },
+        "items": [],
+        "allowed": true
+      },
+      {
+        "name": "WEB 1080p",
+        "id": 1003,
+        "items": [
+          {
+            "quality": {
+              "id": 3,
+              "name": "WEBDL-1080p",
+              "source": "web",
+              "resolution": 1080
+            },
+            "items": [],
+            "allowed": true
+          }
+        ],
+        "allowed": true
+      },
+      {
+        "quality": {
+          "id": 18,
+          "name": "WEBDL-2160p",
+          "source": "web",
+          "resolution": 2160
+        },
+        "items": [],
+        "allowed": false
+      }
+    ]
+  }
+]
