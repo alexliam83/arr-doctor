@@ -72,3 +72,30 @@ async def test_rename_several_files_asks_the_user(api) -> None:
     async with _client("decline", seen) as c:
         res = await c.call_tool("rename_files", {"series": "The Capture", "season": 3})
     assert res.structured_content["applied"] is False and not cmd.called and "2" in seen[0]
+
+
+def _season_files(api) -> dict[int, Any]:
+    api.get(f"{S}/series").respond(json=load("sonarr_series_list"))
+    api.get(f"{S}/episode").respond(json=load("sonarr_episodes_s3"))
+    api.get(f"{S}/config/mediamanagement").respond(json={"recycleBin": ""})
+    api.put(f"{S}/episode/monitor").respond(json=[])
+    return {fid: api.delete(f"{S}/episodefile/{fid}").respond(200) for fid in (101, 102, 103)}
+
+
+async def test_delete_files_user_accepts(api) -> None:
+    deletes = _season_files(api)
+    seen: list[str] = []
+    async with _client("accept", seen) as c:
+        res = await c.call_tool("delete_files", {"series": "The Capture", "season": 3})
+    assert res.structured_content["deleted"] == 3 and all(r.called for r in deletes.values())
+    assert "3" in seen[0] and "The Capture S03" in seen[0]
+
+
+async def test_delete_files_user_declines_even_with_token(api) -> None:
+    deletes = _season_files(api)
+    seen: list[str] = []
+    async with _client("decline", seen) as c:
+        args = {"series": "The Capture", "season": 3}
+        token = (await c.call_tool("preview_delete_files", args)).structured_content["confirmation_token"]
+        res = await c.call_tool("delete_files", {**args, "confirmation_token": token})
+    assert res.structured_content["deleted"] == 0 and not any(r.called for r in deletes.values())

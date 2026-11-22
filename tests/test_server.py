@@ -11,6 +11,7 @@ WRITE_TOOLS = {
     "search_episodes", "search_season", "search_missing", "search_movie", "set_monitored",
     "remove_from_queue", "refresh_item", "add_series", "add_movie", "manual_import",
     "set_indexer_enabled", "test_indexers", "grab_release", "bulk_edit_apply", "rename_files",
+    "delete_files",
 }
 SONARR_ONLY = {"get_series", "get_episodes", "search_episodes", "search_season", "add_series"}
 RADARR_ONLY = {"get_movie", "search_movie", "add_movie"}
@@ -31,7 +32,7 @@ async def test_readonly_registers_no_write_tools() -> None:
     names = await tool_names(arr_readonly=True)
     assert not names & WRITE_TOOLS
     assert {"get_queue", "list_indexers", "find_orphan_downloads"} <= names
-    assert "bulk_edit_preview" in names and "preview_rename" in names  # previews are read-only
+    assert {"bulk_edit_preview", "preview_rename", "preview_delete_files"} <= names  # previews are read-only
 
 
 async def test_unconfigured_services_are_not_registered() -> None:
@@ -46,6 +47,8 @@ async def test_annotations() -> None:
     assert tools["get_queue"].annotations.readOnlyHint is True
     assert tools["remove_from_queue"].annotations.destructiveHint is True
     assert tools["manual_import"].annotations.destructiveHint is True
+    assert tools["delete_files"].annotations.destructiveHint is True
+    assert tools["preview_delete_files"].annotations.readOnlyHint is True
     assert tools["search_episodes"].annotations.readOnlyHint is False
 
 

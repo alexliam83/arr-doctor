@@ -702,6 +702,34 @@ MESSAGES: dict[str, dict[str, str]] = {
         "en": "arr-doctor: rename {n} files of {what}?",
         "es": "arr-doctor: ¿renombrar {n} archivos de {what}?",
     },
+    "nothing_to_delete": {
+        "en": "There are no files on disk for that selection: nothing to delete.",
+        "es": "No hay archivos en disco para esa selección: no hay nada que borrar.",
+    },
+    "confirm_delete": {
+        "en": "arr-doctor: delete {n} files of {what} ({size}) from disk?",
+        "es": "arr-doctor: ¿borrar del disco {n} archivos de {what} ({size})?",
+    },
+    "needs_delete_preview": {
+        "en": "Nothing deleted. Deleting files always needs the preview first: call preview_delete_files, show it to the user and, if they agree, call again with its confirmation_token.",
+        "es": "No se ha borrado nada. Borrar archivos siempre requiere la vista previa: llama a preview_delete_files, enséñasela al usuario y, si está de acuerdo, repite con su confirmation_token.",
+    },
+    "delete_kept_monitored": {
+        "en": "The episodes/movie are still monitored: Sonarr/Radarr will download them again.",
+        "es": "Los episodios o la película siguen monitorizados: Sonarr/Radarr los volverá a descargar.",
+    },
+    "recycle_bin_on": {
+        "en": "Files go to the recycle bin ({path}); they can be recovered from there until it is emptied.",
+        "es": "Los archivos van a la papelera de reciclaje ({path}); se pueden recuperar de ahí hasta que se vacíe.",
+    },
+    "recycle_bin_off_delete": {
+        "en": "No recycle bin is configured: the files are deleted permanently.",
+        "es": "No hay papelera de reciclaje configurada: los archivos se borran para siempre.",
+    },
+    "recycle_bin_unknown": {
+        "en": "Could not read the recycle bin setting: assume the deletion is permanent.",
+        "es": "No se pudo leer la configuración de la papelera: da por hecho que el borrado es definitivo.",
+    },
     "user_declined": {
         "en": "The user declined in the confirmation dialog. Nothing was changed; do not retry unless they ask.",
         "es": "El usuario lo rechazó en el diálogo de confirmación. No se ha cambiado nada; no lo reintentes salvo que te lo pida.",

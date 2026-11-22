@@ -478,6 +478,47 @@ Examples: "Yes, rename the files of The Capture season 3", "Apply the rename to 
 | `movie` | string \| integer \| null | `null` | Radarr movie ID or title |
 | `confirmation_token` | string \| null | `null` | Token from preview_rename; required to rename more than one file |
 
+### `preview_delete_files`
+
+_solo lectura_
+
+Preview which files on disk would be deleted for a series (optionally one season or
+some episodes) or a movie: paths, sizes, total space freed and whether Sonarr/Radarr
+has a recycle bin. Nothing is deleted. Show it to the user; if they agree, delete with
+delete_files and the confirmation_token returned here.
+
+Examples: "I finished season 4 of Ted Lasso, what would deleting it free?",
+"Preview deleting the file of Dune"
+
+| Parámetro | Tipo | Por defecto | Descripción |
+|---|---|---|---|
+| `series` | string \| integer \| null | `null` | Sonarr series ID or title |
+| `season` | integer \| null | `null` | With `series`: only this season |
+| `episodes` | list[integer] \| null | `null` | With `series` + `season`: only these episode numbers |
+| `movie` | string \| integer \| null | `null` | Radarr movie ID or title |
+| `limit` | integer | `50` |  |
+
+### `delete_files`
+
+_**destructiva**_
+
+Delete from disk the files of a series (optionally one season or some episodes) or a
+movie, e.g. after watching them. Always call preview_delete_files first, show it to the
+user and only call this once they agree, passing the preview's confirmation_token. By
+default the deleted episodes/movie are also unmonitored, otherwise Sonarr/Radarr would
+download them again. Without a recycle bin the deletion is permanent.
+
+Examples: "Yes, delete season 4 of Ted Lasso", "Delete the file of Dune, I've watched it"
+
+| Parámetro | Tipo | Por defecto | Descripción |
+|---|---|---|---|
+| `series` | string \| integer \| null | `null` | Sonarr series ID or title |
+| `season` | integer \| null | `null` | With `series`: only this season |
+| `episodes` | list[integer] \| null | `null` | With `series` + `season`: only these episode numbers |
+| `movie` | string \| integer \| null | `null` | Radarr movie ID or title |
+| `unmonitor` | boolean | `True` | Also unmonitor the deleted episodes/movie so they are not downloaded again |
+| `confirmation_token` | string \| null | `null` | Token from preview_delete_files (always required) |
+
 ### `test_download_clients`
 
 _solo lectura · contacta con servicios externos_

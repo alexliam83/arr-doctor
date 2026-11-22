@@ -155,6 +155,10 @@ class RadarrClient(ArrClient):
         """Re-evaluate files with a manual assignment; returns them with fresh rejections."""
         return await self.post("/manualimport", json=items)
 
+    async def delete_movie_file(self, file_id: int) -> Any:
+        """Delete one movie file from disk (to the recycle bin if one is configured)."""
+        return await self.delete(f"/moviefile/{file_id}")
+
     async def remove_from_queue(
         self, queue_id: int, remove_from_client: bool, blocklist: bool, skip_redownload: bool
     ) -> Any:

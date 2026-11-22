@@ -6,6 +6,10 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). V
 
 ## [Unreleased]
 
+### Añadido
+
+- `preview_delete_files` y `delete_files`: borran del disco los archivos de una serie (entera, una temporada o algunos episodios) o de una película, por ejemplo después de verlos. Borrar siempre exige el `confirmation_token` de la vista previa o un «sí» en el diálogo de confirmación del cliente, avisa de si Sonarr/Radarr tiene papelera de reciclaje y, por defecto, deja de monitorizar lo borrado para que no se vuelva a descargar.
+
 ## [0.2.0] - 2026-10-06
 
 Primera versión pública.

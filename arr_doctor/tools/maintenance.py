@@ -1,4 +1,4 @@
-"""Maintenance tools: bulk edit, rename with preview, library report, download client test."""
+"""Maintenance tools: bulk edit, rename and file deletion with preview, library report, download client test."""
 
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ from arr_doctor import formatting as fmt
 from arr_doctor.clients.base import ArrError
 from arr_doctor.i18n import t
 from arr_doctor.tools.common import (
+    DESTRUCTIVE,
     READ_ONLY,
     WRITE,
     ArrService,
@@ -148,6 +149,39 @@ def register(mcp: FastMCP, svc: Services, readonly: bool) -> None:
             apply=False, confirmation_token=None,
         )
 
+    @mcp.tool(annotations=READ_ONLY)
+    @returns_candidates
+    async def preview_delete_files(
+        series: Annotated[str | int | None, Field(description="Sonarr series ID or title")] = None,
+        season: Annotated[int | None, Field(description="With `series`: only this season")] = None,
+        episodes: Annotated[
+            list[int] | None, Field(description="With `series` + `season`: only these episode numbers")
+        ] = None,
+        movie: Annotated[str | int | None, Field(description="Radarr movie ID or title")] = None,
+        limit: Annotated[int, Field(ge=1, le=500)] = PREVIEW_LIMIT,
+    ) -> dict[str, Any]:
+        """Preview which files on disk would be deleted for a series (optionally one season or
+        some episodes) or a movie: paths, sizes, total space freed and whether Sonarr/Radarr
+        has a recycle bin. Nothing is deleted. Show it to the user; if they agree, delete with
+        delete_files and the confirmation_token returned here.
+
+        Examples: "I finished season 4 of Ted Lasso, what would deleting it free?",
+        "Preview deleting the file of Dune"
+        """
+        target, files = await _delete_plan(svc, series, season, episodes, movie)
+        total = sum(f["size"] or 0 for f in files)
+        token = confirmation("delete", target, sorted(f["file_id"] for f in files)) if files else None
+        return fmt.drop_none(
+            {
+                **target,
+                **fmt.limited([_delete_row(f) for f in files], limit),
+                "total_size": fmt.human_size(total) if files else None,
+                "recycle_bin": await _recycle_bin_note(svc, target["service"]) if files else None,
+                "confirmation_token": token,
+                "message": None if files else t("nothing_to_delete"),
+            }
+        )
+
     if readonly:
         return
 
@@ -238,6 +272,88 @@ def register(mcp: FastMCP, svc: Services, readonly: bool) -> None:
         )
 
 # ------------------------------------------------------------------ helpers
+
+
+    @mcp.tool(annotations=DESTRUCTIVE)
+    @returns_candidates
+    async def delete_files(
+        series: Annotated[str | int | None, Field(description="Sonarr series ID or title")] = None,
+        season: Annotated[int | None, Field(description="With `series`: only this season")] = None,
+        episodes: Annotated[
+            list[int] | None, Field(description="With `series` + `season`: only these episode numbers")
+        ] = None,
+        movie: Annotated[str | int | None, Field(description="Radarr movie ID or title")] = None,
+        unmonitor: Annotated[
+            bool, Field(description="Also unmonitor the deleted episodes/movie so they are not downloaded again")
+        ] = True,
+        confirmation_token: Annotated[
+            str | None, Field(description="Token from preview_delete_files (always required)")
+        ] = None,
+        ctx: Context | None = None,
+    ) -> dict[str, Any]:
+        """Delete from disk the files of a series (optionally one season or some episodes) or a
+        movie, e.g. after watching them. Always call preview_delete_files first, show it to the
+        user and only call this once they agree, passing the preview's confirmation_token. By
+        default the deleted episodes/movie are also unmonitored, otherwise Sonarr/Radarr would
+        download them again. Without a recycle bin the deletion is permanent.
+
+        Examples: "Yes, delete season 4 of Ted Lasso", "Delete the file of Dune, I've watched it"
+        """
+        target, files = await _delete_plan(svc, series, season, episodes, movie)
+        if not files:
+            return {**target, "deleted": 0, "message": t("nothing_to_delete")}
+        total = sum(f["size"] or 0 for f in files)
+        token = confirmation("delete", target, sorted(f["file_id"] for f in files))
+        what = " ".join(str(x) for x in (target.get("series") or target.get("movie"), target.get("scope")) if x)
+        answer = await ask_user(ctx, t("confirm_delete", n=len(files), what=what, size=fmt.human_size(total)))
+        if answer is False:
+            return {**target, "deleted": 0, "message": t("user_declined")}
+        if answer is not True and confirmation_token != token:
+            return {
+                **target,
+                "deleted": 0,
+                **fmt.limited([_delete_row(f) for f in files], PREVIEW_LIMIT),
+                "note": t("needs_delete_preview"),
+            }
+
+        service = target["service"]
+        client: Any = svc.require_sonarr() if service == "sonarr" else svc.require_radarr()
+        recycle = await _recycle_bin_note(svc, service)
+        results: list[dict[str, Any]] = []
+        # One at a time: gentler on a NAS than firing every delete at once.
+        for f in files:
+            try:
+                if service == "sonarr":
+                    await client.delete_episode_file(f["file_id"])
+                else:
+                    await client.delete_movie_file(f["file_id"])
+            except ArrError as exc:
+                results.append({**_delete_row(f), "deleted": False, "error": str(exc)})
+            else:
+                results.append({**_delete_row(f), "deleted": True})
+        done = [f for f, r in zip(files, results, strict=True) if r["deleted"]]
+        failed = [r for r in results if not r["deleted"]]
+
+        unmonitored: list[str] | bool | None = None
+        if unmonitor and done:
+            if service == "sonarr":
+                ids = sorted({i for f in done for i in f["episode_ids"]})
+                await client.set_episodes_monitored(ids, False)
+                unmonitored = [c for f in done for c in f["episodes"]]
+            else:
+                await client.set_movies_monitored([target["movie_id"]], False)
+                unmonitored = True
+        return fmt.drop_none(
+            {
+                **target,
+                "deleted": len(done),
+                "freed": fmt.human_size(sum(f["size"] or 0 for f in done)),
+                "failed": failed or None,
+                "unmonitored": unmonitored,
+                "recycle_bin": recycle,
+                "note": t("delete_kept_monitored") if done and not unmonitor else None,
+            }
+        )
 
 
 async def _bulk_edit(
@@ -438,6 +554,88 @@ async def _rename_disabled_note(svc: Services, target: dict[str, Any]) -> str | 
     if naming.get(key) is False:
         return t("rename_disabled", svc=client.display_name, setting=key)
     return None
+
+
+async def _delete_plan(
+    svc: Services,
+    series: str | int | None,
+    season: int | None,
+    episodes: list[int] | None,
+    movie: str | int | None,
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Files on disk that delete_files would remove, one entry per file (a multi-episode
+    file appears once, with all its episodes)."""
+    if series is not None:
+        if episodes and season is None:
+            raise ArrError(t("need_season_and_episodes"))
+        sonarr = svc.require_sonarr()
+        s = await resolve_series(sonarr, series)
+        if season is not None and not any(se.get("seasonNumber") == season for se in s.get("seasons") or []):
+            raise ArrError(t("no_such_season", title=s.get("title"), season=season))
+        eps = await sonarr.get_episodes(s["id"], season, include_file=True)
+        if episodes:
+            numbers = {e.get("episodeNumber") for e in eps}
+            missing = sorted(set(episodes) - numbers)
+            if missing:
+                raise ArrError(t("episodes_not_in_season", title=s.get("title"), missing=missing, season=season))
+            wanted = set(episodes)
+            eps = [e for e in eps if e.get("episodeNumber") in wanted]
+        scope = (
+            ", ".join(fmt.episode_code(season, n) or "" for n in sorted(set(episodes)))
+            if episodes
+            else (f"S{season:02d}" if season is not None else None)
+        )
+        target = fmt.drop_none(
+            {"service": "sonarr", "series": s.get("title"), "series_id": s["id"], "scope": scope}
+        )
+        by_file: dict[int, dict[str, Any]] = {}
+        for e in sorted(eps, key=lambda e: (e.get("seasonNumber") or 0, e.get("episodeNumber") or 0)):
+            fid = e.get("episodeFileId")
+            if not fid or not e.get("hasFile"):
+                continue
+            ef = e.get("episodeFile") or {}
+            row = by_file.setdefault(
+                fid,
+                {
+                    "file_id": fid,
+                    "path": ef.get("path") or ef.get("relativePath"),
+                    "size": ef.get("size"),
+                    "episodes": [],
+                    "episode_ids": [],
+                },
+            )
+            row["episodes"].append(fmt.episode_code(e.get("seasonNumber"), e.get("episodeNumber")))
+            row["episode_ids"].append(e["id"])
+        return target, list(by_file.values())
+    if movie is not None:
+        radarr = svc.require_radarr()
+        m = await resolve_movie(radarr, movie)
+        if m.get("hasFile") and not m.get("movieFile"):
+            m = await radarr.get_movie(m["id"])
+        target = {"service": "radarr", "movie": f"{m.get('title')} ({m.get('year')})", "movie_id": m["id"]}
+        mf = m.get("movieFile") or {}
+        if not m.get("hasFile") or not mf.get("id"):
+            return target, []
+        return target, [{"file_id": mf["id"], "path": mf.get("path") or mf.get("relativePath"), "size": mf.get("size")}]
+    raise ArrError(t("need_series_or_movie"))
+
+
+def _delete_row(f: dict[str, Any]) -> dict[str, Any]:
+    return fmt.drop_none(
+        {"file_id": f["file_id"], "episodes": f.get("episodes"), "path": f["path"], "size": fmt.human_size(f["size"])}
+    )
+
+
+async def _recycle_bin_note(svc: Services, service: str) -> str:
+    """Where deleted files end up: the recycle bin folder, or gone for good."""
+    client: Any = svc.require_sonarr() if service == "sonarr" else svc.require_radarr()
+    try:
+        recycle_bin = (await client.media_management()).get("recycleBin")
+    except ArrError:
+        return t("recycle_bin_unknown")
+    if recycle_bin:
+        return t("recycle_bin_on", path=recycle_bin)
+    return t("recycle_bin_off_delete")
 
 
 def confirmation(*parts: Any) -> str:

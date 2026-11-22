@@ -6,6 +6,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versio
 
 ## [Unreleased]
 
+### Added
+
+- `preview_delete_files` and `delete_files`: delete from disk the files of a series (whole series, one season or some episodes) or a movie, e.g. after watching them. Deleting always needs the preview's `confirmation_token` or a "yes" in the client's confirmation dialog, reports whether Sonarr/Radarr has a recycle bin and, by default, unmonitors what was deleted so it is not downloaded again.
+
 ## [0.2.0] - 2026-10-06
 
 First public release.

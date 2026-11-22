@@ -199,6 +199,10 @@ class SonarrClient(ArrClient):
         """Re-evaluate files with a manual assignment; returns them with fresh rejections."""
         return await self.post("/manualimport", json=items)
 
+    async def delete_episode_file(self, file_id: int) -> Any:
+        """Delete one episode file from disk (to the recycle bin if one is configured)."""
+        return await self.delete(f"/episodefile/{file_id}")
+
     async def remove_from_queue(
         self, queue_id: int, remove_from_client: bool, blocklist: bool, skip_redownload: bool
     ) -> Any:
