@@ -21,7 +21,8 @@ dependencies = [
     # 2.14 breaks against `mcp`, 4.x changes the API. Bump only with tests green.
     "fastmcp>=2.12,<2.13",
     "httpx>=0.27",
-    "pydantic>=2.7",
+    # pydantic 2.14 breaks the pinned `mcp` (ImportError: eval_type_backport).
+    "pydantic>=2.7,<2.14",
     "pydantic-settings>=2.3",
 ]
 

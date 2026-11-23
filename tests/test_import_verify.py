@@ -6,8 +6,6 @@ but every move failed because a *file* named "Season 3" blocked the season folde
 
 from __future__ import annotations
 
-from datetime import UTC, datetime, timedelta
-
 import httpx
 import pytest
 
@@ -73,7 +71,7 @@ async def test_old_file_is_not_mistaken_for_a_new_import(api, call) -> None:
     api.get(f"{S}/manualimport").respond(json=item)
     api.get(f"{S}/config/mediamanagement").respond(json={"recycleBin": "/recycle"})
     _mock_command(api, S, ["completed"])
-    old = (datetime.now(UTC) - timedelta(days=30)).isoformat()
+    old = "2026-09-04T18:00:00Z"  # a month before the command (fixed: relative to now it expired)
     ep = {**load("sonarr_episodes_s3")[3], "hasFile": True, "episodeFile": {"id": 5, "dateAdded": old}}
     api.get(f"{S}/episode").respond(json=[ep])
     api.get(f"{S}/log").respond(json={"records": []})
