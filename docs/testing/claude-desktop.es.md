@@ -84,6 +84,7 @@ Dos términos con significado fijo:
 | 5.1 | Hay un `.exe` u otro release falso en la cola. «Quítalo, bloquéalo y busca otro.» | `find_suspicious_releases` → `remove_from_queue(blocklist=true)` | **Confirma en el chat** qué va a borrar. Si el episodio aún no se ha emitido, propone no buscar sustituto. |
 | 5.2 | Hay archivos huérfanos en descargas. «Impórtalos.» | `find_orphan_downloads` → `manual_import` | **Confirma en el chat** la lista exacta de archivos. Si un archivo sustituiría a otro, pide permiso expreso. Al final dice cuántos entraron de verdad. |
 | 5.3 | Una importación grande (varios GB). | `manual_import` → `get_command_status` | Si tarda, dice que sigue en marcha y lo comprueba después. No hay errores de tiempo de espera. |
+| 5.4 | Has terminado de ver una temporada. «He terminado la temporada N de [serie], bórrala.» | `preview_delete_files` → `delete_files` | **Confirma en el chat:** primero enseña los archivos, el tamaño y si hay papelera, y solo borra cuando dices que sí (o pregunta con el diálogo del cliente). Los episodios quedan sin monitorizar y no se vuelven a descargar. |
 
 ## 6. Errores y configuración 👁️
 
@@ -142,6 +143,7 @@ Dos términos con significado fijo:
 | 5.1 | | |
 | 5.2 | | |
 | 5.3 | | |
+| 5.4 | | |
 | 6.1 | | |
 | 6.2 | | |
 | 6.3 | | |

@@ -84,6 +84,7 @@ Two terms with a fixed meaning:
 | 5.1 | A fake `.exe` release is in the queue. "Remove it, blocklist it and find another." | `find_suspicious_releases` → `remove_from_queue(blocklist=true)` | **Confirms in chat** what it will delete. If the episode has not aired yet, it suggests not searching for a replacement. |
 | 5.2 | Orphaned files in downloads. "Import them." | `find_orphan_downloads` → `manual_import` | **Confirms in chat** the exact list of files. Asks explicitly if a file would replace another. At the end says how many really got in. |
 | 5.3 | A big import (several GB). | `manual_import` → `get_command_status` | If it takes long, says it is still running and checks later. No timeout errors. |
+| 5.4 | You finished watching a season. "I finished season N of [series], delete it." | `preview_delete_files` → `delete_files` | **Confirms in chat:** shows the files, size and recycle-bin status first and only deletes once you agree (or asks through the client's dialog). The episodes end up unmonitored and not downloaded again. |
 
 ## 6. Errors and configuration 👁️
 
@@ -142,6 +143,7 @@ Two terms with a fixed meaning:
 | 5.1 | | |
 | 5.2 | | |
 | 5.3 | | |
+| 5.4 | | |
 | 6.1 | | |
 | 6.2 | | |
 | 6.3 | | |

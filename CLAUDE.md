@@ -47,7 +47,7 @@ arr-doctor/
 │       ├── library.py      # catálogo: series, películas, episodios, faltantes, calendario
 │       ├── diagnostics.py  # cola, historial, blocklist, salud, logs, huérfanos, sospechosos
 │       ├── troubleshoot.py # explain_search, diagnose_import, check_paths, descargas paradas, parse_release
-│       ├── maintenance.py  # bulk_edit_preview/apply, renombrado, informe de espacio, test de clientes de descarga
+│       ├── maintenance.py  # bulk_edit_preview/apply, renombrado, borrado de archivos, informe de espacio, test de clientes de descarga
 │       ├── actions.py      # búsquedas, monitorizar, quitar de la cola, añadir, importar
 │       ├── importcheck.py  # verificación de importaciones manuales
 │       ├── indexers.py     # Prowlarr
@@ -190,12 +190,13 @@ Ver la sección de instalación de `README.md` / `README.es.md`.
 
 ## Estado actual
 
-Actualizado el 2026-10-06. Versión publicada: **0.2.0**.
+Actualizado el 2026-11-23. Versión publicada: **0.2.0** (con cambios sin publicar en `Unreleased`).
 
-- Fases 0–3 implementadas, más las prioridades alta y media del roadmap (resolución de problemas y mantenimiento). 42 tools, 245 tests en verde (mocks con `respx` y uno de extremo a extremo por stdio). CI en Windows y Linux con ruff y mypy.
+- Fases 0–3 implementadas, más las prioridades alta y media del roadmap (resolución de problemas y mantenimiento). 45 tools, 282 tests en verde (mocks con `respx` y uno de extremo a extremo por stdio). CI en Windows y Linux con ruff y mypy.
 - Validado contra Sonarr v4 y Radarr 6.2 reales: todas las tools de lectura (salvo `explain_search` y `test_download_clients`) y, con permiso, `refresh_item`, `remove_from_queue` con blocklist y `manual_import`. Detalles en `CLAUDE.local.md`.
 - Todas las tools, también las de escritura, probadas contra contenedores Docker desechables de Sonarr 4.0.20, Radarr 5.28 y 6.4.4, y Prowlarr 2.6.5 (bibliotecas vacías).
 - Las pruebas reales destaparon y corrigieron: elementos desconocidos de la cola, detección de descargas paradas, importaciones dadas por buenas que habían fallado y la espera frente a los timeouts de los clientes MCP.
+- Sin publicar: `preview_delete_files` / `delete_files` (borrar archivos de episodios o películas con vista previa obligatoria y dejar de monitorizarlos). Probadas solo con mocks; falta validarlas contra el NAS real.
 - Prowlarr real validado en lectura (detalles en `CLAUDE.local.md`).
 - Siguiente: pruebas en Claude Desktop (`docs/testing/claude-desktop.es.md`) y decidir la publicación (nombre, autor del LICENSE, historial limpio). Después, la prioridad baja de `docs/ROADMAP.es.md`. La distribución sin dependencias (`.mcpb`, ejecutable, PyPI, Docker en NAS) está anotada como idea, sin decidir.
 - Repositorio: https://github.com/alexliam83/arr-doctor (público desde la v0.2.0, 2026-10-06, con historial limpio; el historial de desarrollo está en el repo privado `arr-doctor-history`). Nombre definitivo `arr-doctor` (antes `arr-mcp`, ocupado en PyPI y GitHub). La carpeta local de desarrollo sigue llamándose `arr-mcp`.

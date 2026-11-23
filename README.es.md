@@ -20,19 +20,19 @@ Está pensado sobre todo para las preguntas que más se repiten en los issues y 
 - «¿Qué indexer me da más fallos este mes?»
 - «Añade la serie Severance con el perfil HD-1080p.»
 
-> Estado: **v0.2.0**. 43 tools, 269 tests. Validado contra Sonarr, Radarr y Prowlarr reales en un NAS Synology, y todas las tools (también las de escritura) contra contenedores desechables de Sonarr, Radarr y Prowlarr. Ver [Estado](#estado).
+> Estado: **v0.2.0**. 45 tools, 282 tests. Validado contra Sonarr, Radarr y Prowlarr reales en un NAS Synology, y todas las tools (también las de escritura) contra contenedores desechables de Sonarr, Radarr y Prowlarr. Ver [Estado](#estado).
 
 ## Características
 
-- **42 tools** en siete grupos: estado, catálogo, diagnóstico, resolución de problemas, mantenimiento, acciones y Prowlarr. Referencia completa en [docs/TOOLS.es.md](docs/TOOLS.es.md).
+- **45 tools** en siete grupos: estado, catálogo, diagnóstico, resolución de problemas, mantenimiento, acciones y Prowlarr. Referencia completa en [docs/TOOLS.es.md](docs/TOOLS.es.md).
 - **Resolución de problemas guiada:**
   - `explain_search` lanza una búsqueda interactiva y agrupa los releases por motivo de rechazo (idioma, tamaño, calidad, puntuación de custom formats…).
   - `diagnose_import` y `check_paths` dan la causa probable de una importación fallida y cómo arreglarla: remote path mapping, permisos, emparejado manual, «not an upgrade»…
   - `find_stalled_downloads` detecta descargas atascadas.
   - `parse_release` muestra cómo se puntúa un release y estima si sería una mejora.
   - `get_health` añade a cada aviso de salud conocido su solución habitual; `test_download_clients` prueba los clientes de descarga.
-- **Mantenimiento:** `bulk_edit_preview` / `bulk_edit_apply` cambian muchas series o películas a la vez (monitorización, perfil de calidad, etiquetas…), siempre con vista previa antes; `preview_rename` / `rename_files` renombran con vista previa; `library_report` muestra qué ocupa espacio y qué se podría limpiar.
-- **Sigue las buenas prácticas de Sonarr/Radarr, aplicadas en el código:** presupuesto horario de indexers, sin búsquedas repetidas, búsquedas y retiradas masivas en dos pasos, importaciones que nunca rompen el seeding ni sustituyen archivos sin permiso, y vista previa antes de los cambios masivos. Ver [docs/GOOD_PRACTICES.es.md](docs/GOOD_PRACTICES.es.md).
+- **Mantenimiento:** `bulk_edit_preview` / `bulk_edit_apply` cambian muchas series o películas a la vez (monitorización, perfil de calidad, etiquetas…), siempre con vista previa antes; `preview_rename` / `rename_files` renombran con vista previa; `library_report` muestra qué ocupa espacio y qué se podría limpiar; `preview_delete_files` / `delete_files` borran los archivos de una serie, temporada, episodios o película que ya has visto, y dejan de monitorizarlos para que no se vuelvan a descargar.
+- **Sigue las buenas prácticas de Sonarr/Radarr, aplicadas en el código:** presupuesto horario de indexers, sin búsquedas repetidas, búsquedas y retiradas masivas en dos pasos, importaciones que nunca rompen el seeding ni sustituyen archivos sin permiso, archivos que solo se borran tras una vista previa que aprueba el usuario, y vista previa antes de los cambios masivos. Ver [docs/GOOD_PRACTICES.es.md](docs/GOOD_PRACTICES.es.md).
 - **Respuestas compactas.** Nunca devuelve el JSON crudo de la API: recorta sinopsis, quita imágenes y campos internos, y pagina con `limit` y `truncated`.
 - **Errores legibles en inglés o español** (`ARR_LANG`). Por ejemplo, «Sonarr devolvió 401: API key incorrecta (revisa SONARR_API_KEY)» en lugar de un traceback.
 - **Títulos o IDs.** Las tools aceptan `"The Capture"`, `"Dune 2021"` o `42`. Si el título es ambiguo, devuelven los candidatos en vez de elegir uno.
@@ -170,6 +170,7 @@ Conversaciones típicas y las tools que Claude suele usar:
 | «¿Qué ocupa más espacio?» | `library_report` |
 | «Deja de monitorizar las series terminadas y completas» | `bulk_edit_preview` → `bulk_edit_apply` |
 | «¿Qué archivos no siguen mi formato de nombres?» | `preview_rename` → `rename_files` |
+| «He terminado la temporada 4 de Ted Lasso, bórrala» | `preview_delete_files` → `delete_files` |
 | «Añade Severance en HD-1080p» | `add_series` (si faltan el perfil o la carpeta raíz, devuelve las opciones) |
 | «Importa lo que se quedó en descargas» | `find_orphan_downloads` → `manual_import(files=[…])` |
 
@@ -184,8 +185,9 @@ Las búsquedas, los refrescos y las importaciones son **comandos asíncronos** d
 - `grab_release`: manda un release concreto al cliente de descarga aunque se hubiera rechazado.
 - `bulk_edit_apply`: cambia muchos elementos a la vez; para varios necesita el código de `bulk_edit_preview`.
 - `rename_files`: renombra archivos en disco según la configuración de nombres.
+- `delete_files`: borra del disco archivos de episodios o películas. Siempre necesita el código de `preview_delete_files` (o un «sí» en el diálogo de confirmación del cliente) y, por defecto, deja de monitorizar lo que borra (`unmonitor=true`) para que Sonarr/Radarr no lo vuelvan a descargar. Si Sonarr/Radarr no tienen papelera de reciclaje configurada, el borrado es definitivo; la vista previa indica cuál es el caso.
 
-Claude Desktop pide permiso la primera vez que usa cada tool. Para estas es mejor no elegir «Permitir siempre», así puedes revisar cada llamada. Las dos que borran llevan además la anotación MCP `destructiveHint`.
+Claude Desktop pide permiso la primera vez que usa cada tool. Para estas es mejor no elegir «Permitir siempre», así puedes revisar cada llamada. Las tres que borran (`remove_from_queue`, `manual_import`, `delete_files`) llevan además la anotación MCP `destructiveHint`.
 
 ## Desarrollo
 
@@ -249,7 +251,7 @@ Todas las tools tienen tests unitarios (HTTP simulado) y el servidor tiene un te
 | Catálogo y diagnóstico (lectura) | ✅ | ✅ | Todas las tools, Sonarr y Radarr |
 | Resolución de problemas (lectura) | ✅ | ✅ | En el NAS encontró un `.exe` falso real, descargas paradas y archivos huérfanos. `explain_search` solo en contenedores (allí no hay indexers) |
 | Acciones de escritura | ✅ en parte | ✅ | NAS: `refresh_item`, `remove_from_queue` con blocklist, `manual_import` (6 episodios). Contenedores: `add_series`/`add_movie`, `set_monitored`, todas las búsquedas. `grab_release` solo con mocks (necesita indexers reales) |
-| Mantenimiento | ✅ en parte | ✅ | NAS: `library_report`, `preview_rename`. Contenedores: `bulk_edit_preview` / `bulk_edit_apply`, `test_download_clients`. `rename_files` aplicado solo con mocks (necesita archivos en disco) |
+| Mantenimiento | ✅ en parte | ✅ | NAS: `library_report`, `preview_rename`. Contenedores: `bulk_edit_preview` / `bulk_edit_apply`, `test_download_clients`. `rename_files` y `delete_files` aplicados solo con mocks (necesitan archivos en disco) |
 | Prowlarr | ✅ | ✅ | NAS (Prowlarr 2.4.0, 11 indexers): todas las tools, incluidas `test_indexers` y `set_indexer_enabled` (8 indexers caídos desactivados; credenciales intactas) |
 | Windows y Linux | ✅ | — | CI en ambos + un Windows real |
 | Protecciones de buenas prácticas | ✅ | ✅ | |

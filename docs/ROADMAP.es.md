@@ -59,7 +59,7 @@ En Radarr, «bulk» aparece en unos 300 issues y «tags» en unos 400; Sonarr ti
 
 Sonarr #314 «Auto delete episodes after certain criteria» (29 👍, abierto) y #1984 «Recycling Bin Management».
 
-- Elementos que más ocupan, elementos no monitorizados que tienen archivos, series terminadas y completas, tamaño por calidad (películas) y elementos que faltan. Es solo de lectura: borrar sería un paso aparte y explícito. Pendiente: «calidades por encima del perfil».
+- Elementos que más ocupan, elementos no monitorizados que tienen archivos, series terminadas y completas, tamaño por calidad (películas) y elementos que faltan. Es solo de lectura: borrar es un paso aparte y explícito con `preview_delete_files` / `delete_files` ✅. Pendiente: «calidades por encima del perfil».
 
 ### 8. Salud con solución → mejorar `get_health` ✅
 

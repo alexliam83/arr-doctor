@@ -10,6 +10,11 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). V
 
 - `preview_delete_files` y `delete_files`: borran del disco los archivos de una serie (entera, una temporada o algunos episodios) o de una película, por ejemplo después de verlos. Borrar siempre exige el `confirmation_token` de la vista previa o un «sí» en el diálogo de confirmación del cliente, avisa de si Sonarr/Radarr tiene papelera de reciclaje y, por defecto, deja de monitorizar lo borrado para que no se vuelva a descargar.
 
+### Corregido
+
+- `pydantic` limitado a versiones anteriores a la 2.14, que rompe el `mcp` fijado en una instalación limpia (`ImportError: eval_type_backport`).
+- Un test que usaba una fecha relativa a hoy y empezó a fallar cuando la fecha de las fixtures pasó del mes de antigüedad.
+
 ## [0.2.0] - 2026-10-06
 
 Primera versión pública.

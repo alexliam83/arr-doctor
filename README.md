@@ -20,19 +20,19 @@ It focuses on the questions that come up most often in the Sonarr and Radarr iss
 - "Which indexer failed the most this month?"
 - "Add Severance with the HD-1080p profile."
 
-> Status: **v0.2.0**. 43 tools, 269 tests. Validated against a real Sonarr, Radarr and Prowlarr on a Synology NAS, and every tool (including writes) against disposable Sonarr/Radarr/Prowlarr containers. See [Status](#status).
+> Status: **v0.2.0**. 45 tools, 282 tests. Validated against a real Sonarr, Radarr and Prowlarr on a Synology NAS, and every tool (including writes) against disposable Sonarr/Radarr/Prowlarr containers. See [Status](#status).
 
 ## Features
 
-- **42 tools** in seven groups: status, library, diagnostics, troubleshooting, maintenance, actions and Prowlarr. Full reference in [docs/TOOLS.md](docs/TOOLS.md).
+- **45 tools** in seven groups: status, library, diagnostics, troubleshooting, maintenance, actions and Prowlarr. Full reference in [docs/TOOLS.md](docs/TOOLS.md).
 - **Guided troubleshooting:**
   - `explain_search` runs an interactive search and groups the releases by rejection reason (language, size, quality, custom format score…).
   - `diagnose_import` and `check_paths` give the probable cause of a failed import and how to fix it: remote path mapping, permissions, manual match, "not an upgrade"…
   - `find_stalled_downloads` spots stuck downloads.
   - `parse_release` shows how a release is scored and estimates whether it would be an upgrade.
   - `get_health` adds the usual fix to each known health warning; `test_download_clients` tests the download clients.
-- **Maintenance:** `bulk_edit_preview` / `bulk_edit_apply` change many series/movies at once (monitoring, quality profile, tags…), always with a preview first; `preview_rename` / `rename_files` rename with a preview; `library_report` shows what takes space and what could be cleaned up.
-- **Follows Sonarr/Radarr good practice, enforced in code:** an hourly indexer budget, no repeated searches, mass searches and removals in two steps, imports that never break seeding or replace files without permission, and previews before bulk changes. See [docs/GOOD_PRACTICES.md](docs/GOOD_PRACTICES.md).
+- **Maintenance:** `bulk_edit_preview` / `bulk_edit_apply` change many series/movies at once (monitoring, quality profile, tags…), always with a preview first; `preview_rename` / `rename_files` rename with a preview; `library_report` shows what takes space and what could be cleaned up; `preview_delete_files` / `delete_files` delete the files of a series, season, episodes or movie you have watched, and unmonitor them so they are not downloaded again.
+- **Follows Sonarr/Radarr good practice, enforced in code:** an hourly indexer budget, no repeated searches, mass searches and removals in two steps, imports that never break seeding or replace files without permission, files deleted only after a preview the user approves, and previews before bulk changes. See [docs/GOOD_PRACTICES.md](docs/GOOD_PRACTICES.md).
 - **Compact answers.** Never returns raw API JSON: overviews are trimmed, images and internal fields are dropped, and lists are paged with `limit` and `truncated`.
 - **Readable errors in English or Spanish** (`ARR_LANG`). For example, "Sonarr returned 401: wrong API key (check SONARR_API_KEY)" instead of a traceback.
 - **Titles or IDs.** Tools accept `"The Capture"`, `"Dune 2021"` or `42`. When a title is ambiguous they return the candidates instead of guessing.
@@ -168,6 +168,7 @@ Typical conversations and the tools Claude usually picks:
 | "What takes the most space?" | `library_report` |
 | "Unmonitor every ended series that is complete" | `bulk_edit_preview` → `bulk_edit_apply` |
 | "Which files don't follow my naming scheme?" | `preview_rename` → `rename_files` |
+| "I finished season 4 of Ted Lasso, delete it" | `preview_delete_files` → `delete_files` |
 | "Add Severance in HD-1080p" | `add_series` (if profile or root folder are missing, it returns the options) |
 | "Import what was left in downloads" | `find_orphan_downloads` → `manual_import(files=[…])` |
 
@@ -182,8 +183,9 @@ Searches, refreshes and imports are **asynchronous commands** in Sonarr/Radarr. 
 - `grab_release`: sends a specific release to the download client even if it was rejected.
 - `bulk_edit_apply`: changes many items at once; for several items it needs the token from `bulk_edit_preview`.
 - `rename_files`: renames files on disk to match the naming settings.
+- `delete_files`: deletes episode or movie files from disk. It always needs the token from `preview_delete_files` (or a "yes" in the client's confirmation dialog) and, by default, unmonitors what it deletes (`unmonitor=true`) so Sonarr/Radarr do not download it again. Without a recycle bin configured in Sonarr/Radarr the deletion is permanent; the preview says which case applies.
 
-Claude Desktop asks for permission the first time each tool is used. For these it is better not to choose "Always allow", so you can review each call. The two that delete also carry the MCP `destructiveHint` annotation.
+Claude Desktop asks for permission the first time each tool is used. For these it is better not to choose "Always allow", so you can review each call. The three that delete (`remove_from_queue`, `manual_import`, `delete_files`) also carry the MCP `destructiveHint` annotation.
 
 ## Development
 
@@ -247,7 +249,7 @@ All tools have unit tests (mocked HTTP) and the server has an end-to-end stdio t
 | Library and diagnostics (read-only) | ✅ | ✅ | Every tool, Sonarr and Radarr |
 | Troubleshooting (read-only) | ✅ | ✅ | On the NAS it found a real fake `.exe`, stalled downloads and orphaned files. `explain_search` ran in containers only (no indexers there) |
 | Write actions | ✅ partly | ✅ | NAS: `refresh_item`, `remove_from_queue` with blocklist, `manual_import` (6 episodes). Containers: `add_series`/`add_movie`, `set_monitored`, all searches. `grab_release` only mocked (needs real indexers) |
-| Maintenance | ✅ partly | ✅ | NAS: `library_report`, `preview_rename`. Containers: `bulk_edit_preview` / `bulk_edit_apply`, `test_download_clients`. `rename_files` apply only mocked (needs files on disk) |
+| Maintenance | ✅ partly | ✅ | NAS: `library_report`, `preview_rename`. Containers: `bulk_edit_preview` / `bulk_edit_apply`, `test_download_clients`. `rename_files` and `delete_files` apply only mocked (they need files on disk) |
 | Prowlarr | ✅ | ✅ | NAS (Prowlarr 2.4.0, 11 indexers): every tool, including `test_indexers` and `set_indexer_enabled` (8 dead indexers disabled; credentials untouched) |
 | Windows and Linux | ✅ | — | CI on both + a real Windows machine |
 | Good-practice guardrails | ✅ | ✅ | |

@@ -59,7 +59,7 @@ In Radarr, "bulk" appears in about 300 issues and "tags" in about 400; Sonarr ha
 
 Sonarr #314 "Auto delete episodes after certain criteria" (29 👍, open) and #1984 "Recycling Bin Management".
 
-- Biggest items, unmonitored items that have files, ended series that are complete, size per quality (movies) and missing items. Read-only: deleting would be a separate, explicit step. Pending: "qualities above the profile".
+- Biggest items, unmonitored items that have files, ended series that are complete, size per quality (movies) and missing items. Read-only: deleting is a separate, explicit step with `preview_delete_files` / `delete_files` ✅. Pending: "qualities above the profile".
 
 ### 8. Health with fixes → improve `get_health` ✅
 
